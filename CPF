@@ -1,0 +1,51 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class CPF {
+
+    public static void run() {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> cpf = new ArrayList<Integer>();
+        System.out.println("Digite o CPF sem o os 2 ultimos digitos");
+        String cpfString = sc.next();
+
+        char[] listacpf = cpfString.toCharArray();
+        for (char aux : listacpf) {
+            cpf.add(Character.getNumericValue(aux));
+        }
+
+
+        int soma = 0;
+        int auxInt = 10;
+        for (int i = 0; i < cpf.size(); i++) {
+            soma += cpf.get(i) * auxInt;
+            auxInt--;
+        }
+
+        int d1 = 11 - (soma % 11);
+        if (d1 > 9) { d1 = 0; }
+        System.out.println("d1: "+d1);
+        cpf.add(d1);
+
+        soma = 0;
+        int auxInt2 = 11;
+        for (int i = 0; i < cpf.size(); i++) {
+            soma += cpf.get(i) * auxInt2;
+            auxInt2--;
+        }
+        int d2 = 11 - (soma % 11);
+        if (d2 > 9) { d2 = 0; }
+        cpf.add(d2);
+        System.out.println("d2: "+d2);
+
+        for (int i = 0; i < cpf.size(); i++) {
+            if (i == 3 || i == 6) {
+                System.out.print(".");
+            } else if (i == 9) {
+                System.out.print("-");
+            }
+            System.out.print(cpf.get(i));
+        }
+    }
+}
