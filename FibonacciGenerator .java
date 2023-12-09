@@ -19,7 +19,7 @@ public class FibonacciGenerator {
         for (int i = 0; i < n; i++) {
             System.out.print(primeiro + " ");
 
-            int next = first + second;
+            int next = primeiro + segundo;
             primeiro = segundo;
             segundo = next;
         }
