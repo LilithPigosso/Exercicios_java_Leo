@@ -15,24 +15,24 @@ public class ColisaoTrens {
                 double tempo;
                 double posicaoColisao;
 
-                System.out.println("\nINSIRA APENAS VALORES INTEIROS");
+                System.out.println("\nInsira valores validos");
 
                 while (true) {
-                    System.out.println("Informe a posição inicial do trem A (de 0 a 10.000 km):");
+                    System.out.println("Digite a posição inicial do trem A (de 0 a 10.000 km):");
                     posicaoInicialA = sc.nextDouble();
                     if (0 <= posicaoInicialA && posicaoInicialA <= 10000 && posicaoInicialA % 1 == 0) {
                         break;
                     }
-                    System.out.println("Posição inicial inválida. Tente novamente.");
+                    System.out.println("Posição inicial inválida. Digite a posiÇão novamente");
                 }
 
                 while (true) {
-                    System.out.println("Informe a posição inicial do trem B (de 0 a 10.000 km):");
+                    System.out.println("Digite a posição inicial do trem B (de 0 a 10.000 km):");
                     posicaoInicialB = sc.nextDouble();
                     if (0 <= posicaoInicialB && posicaoInicialB <= 10000 && posicaoInicialB % 1 == 0) {
                         break;
                     }
-                    System.out.println("Posição inicial inválida. Tente novamente.");
+                    System.out.println("Posição inicial inválida. Digite a posiÇão novamente");
                 }
 
                 while (true) {
@@ -41,7 +41,7 @@ public class ColisaoTrens {
                     if (0 <= velocidadeA && velocidadeA <= 300 && velocidadeA % 1 == 0) {
                         break;
                     }
-                    System.out.println("Velocidade inválida. Tente novamente.");
+                    System.out.println("Velocidade inválida. Digite a posiÇão novamente");
                 }
 
                 while (true) {
@@ -50,13 +50,13 @@ public class ColisaoTrens {
                     if (-300 <= velocidadeB && velocidadeB <= 0 && velocidadeB % 1 == 0) {
                         break;
                     }
-                    System.out.println("Velocidade inválida. Tente novamente.");
+                    System.out.println("Velocidade inválida. Digite a posiÇão novamente");
                 }
 
                 if (posicaoInicialA > posicaoInicialB) {
-                    System.out.println("Como o Trem A está atrás do Trem B, não haverá colisão.");
+                    System.out.println("O Trem A está atrás do Trem B, não haverá batida entre eles.");
                 } else if (velocidadeA == 0 && velocidadeB == 0) {
-                    System.out.println("Como ambas as velocidades são 0 km/h, não ocorrerá colisão entre esses trens.");
+                    System.out.println(" Ambas as velocidades são 0 km/h, não ocorrerá batida entre esses trens.");
                 } else {
                     tempo = (posicaoInicialA - posicaoInicialB) / (velocidadeB - velocidadeA);
                     posicaoColisao = posicaoInicialA + velocidadeA * tempo;
@@ -73,11 +73,11 @@ public class ColisaoTrens {
                         minutoColisao = minutoInicial + (aux / 60);
                     }
 
-                    System.out.printf("Colisão prevista no KM: %.1f, após %.0f segundos, às %.0fh %.0fm\n",
-                            posicaoColisao, tempo, horaColisao, minutoColisao);
+                    System.out.printf("Colisão prevista no KM: %.1f, após %.0f segundos",
+                            posicaoColisao, tempo);
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Entrada inválida. Tente novamente...");
+                System.out.println("Entrada inválida. Tente rodar de novo...");
             } finally {
                 String continuar;
                 while (true) {
@@ -88,7 +88,7 @@ public class ColisaoTrens {
                     if (continuar.equalsIgnoreCase("S") || continuar.equalsIgnoreCase("N")) {
                         break;
                     } else {
-                        System.out.println("Resposta inválida. Tente novamente...");
+                        System.out.println("Resposta inválida. Digite novamente..");
                     }
                 }
                 if (continuar.equalsIgnoreCase("N")) {
